@@ -1,0 +1,17 @@
+server:
+  port: 8070
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+          id: springRESTclemen
+          uri: lb://springRESTclemen
+          predicates: Path=/api/**
